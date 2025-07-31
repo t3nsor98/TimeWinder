@@ -27,11 +27,11 @@
   }
 
   .dark {
-    --background: 0 0% 5%;
+    --background: 240 10% 3.9%;
     --foreground: 0 0% 95%;
-    --card: 0 0% 8%;
+    --card: 240 4% 10%;
     --card-foreground: 0 0% 95%;
-    --popover: 0 0% 5%;
+    --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 95%;
     --primary: 0 0% 98%;
     --primary-foreground: 0 0% 9%;
@@ -55,5 +55,8 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .glassmorphism {
+    @apply bg-card/60 backdrop-blur-lg border border-white/10 shadow-lg;
   }
 }

@@ -42,7 +42,7 @@ export const GoalCard = ({ goal, onDelete, onMove, isFirst, isLast }: GoalCardPr
 
   return (
     <>
-      <Card className="flex flex-col h-full overflow-hidden shadow-lg transition-all hover:shadow-primary/20 hover:-translate-y-1">
+      <Card className="flex flex-col h-full overflow-hidden transition-all hover:shadow-primary/20 hover:-translate-y-1 glassmorphism">
         <CardHeader className="flex flex-row items-start justify-between">
           <div className="flex-1 pr-2">
             <CardTitle className="text-xl font-bold">{goal.title}</CardTitle>
@@ -54,7 +54,7 @@ export const GoalCard = ({ goal, onDelete, onMove, isFirst, isLast }: GoalCardPr
                 <MoreVertical className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="glassmorphism">
               <DropdownMenuItem onClick={() => onMove(goal.id, 'up')} disabled={isFirst}>
                 <ArrowUp className="mr-2 h-4 w-4" /> Move Up
               </DropdownMenuItem>
@@ -67,7 +67,7 @@ export const GoalCard = ({ goal, onDelete, onMove, isFirst, isLast }: GoalCardPr
             </DropdownMenuContent>
           </DropdownMenu>
         </CardHeader>
-        <CardContent className="flex-grow flex items-center justify-center">
+        <CardContent className="flex-grow flex items-center justify-center p-2 sm:p-6">
           <CountdownDisplay days={days} hours={hours} minutes={minutes} seconds={seconds} isFinished={isFinished} />
         </CardContent>
         <CardFooter>
@@ -78,7 +78,7 @@ export const GoalCard = ({ goal, onDelete, onMove, isFirst, isLast }: GoalCardPr
         </CardFooter>
       </Card>
       <Dialog open={isMotivationDialogOpen} onOpenChange={setIsMotivationDialogOpen}>
-        <DialogContent>
+        <DialogContent className="glassmorphism">
           <DialogHeader>
             <DialogTitle>Your Motivation Boost!</DialogTitle>
             <DialogDescription>For your goal: "{goal.title}"</DialogDescription>

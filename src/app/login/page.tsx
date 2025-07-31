@@ -125,9 +125,10 @@ export default function LoginPage() {
 
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-background p-4">
+        <div className="flex min-h-screen items-center justify-center bg-background p-4 bg-grid-white/[0.05] relative">
+            <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
             <div id="recaptcha-container"></div>
-            <Card className="w-full max-w-md">
+            <Card className="w-full max-w-md glassmorphism">
                 <CardHeader>
                     <CardTitle>Welcome Back!</CardTitle>
                     <CardDescription>Choose your preferred sign-in method.</CardDescription>
@@ -190,7 +191,7 @@ export default function LoginPage() {
                             <span className="w-full border-t" />
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-background px-2 text-muted-foreground">
+                            <span className="bg-card/60 px-2 text-muted-foreground">
                                 Or continue with
                             </span>
                         </div>

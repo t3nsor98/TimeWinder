@@ -62,22 +62,40 @@ export function GoalDashboard() {
   };
   
   if (!isClient) {
-    return null;
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+         <main className="container max-w-screen-2xl py-8">
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-3xl font-bold">Your Goals</h2>
+               <Button>
+                <PlusCircle className="mr-2 h-4 w-4" /> Add New Goal
+              </Button>
+            </div>
+             <div className="text-center py-20 px-4 border-2 border-dashed rounded-lg mt-8">
+                <Wind className="mx-auto h-12 w-12 text-muted-foreground" />
+                <h3 className="mt-4 text-xl font-semibold">Loading your goals...</h3>
+                <p className="mt-2 text-muted-foreground">Please wait a moment.</p>
+              </div>
+        </main>
+      </div>
+    )
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background bg-grid-white/[0.05] relative">
+       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <Header />
-      <main className="container max-w-screen-2xl py-8">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold">Your Goals</h2>
+      <main className="container max-w-screen-2xl py-8 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+          <h2 className="text-3xl font-bold text-center sm:text-left">Your Goals</h2>
           <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
             <DialogTrigger asChild>
               <Button>
                 <PlusCircle className="mr-2 h-4 w-4" /> Add New Goal
               </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="sm:max-w-[480px] glassmorphism">
               <DialogHeader>
                 <DialogTitle>Set a New Goal</DialogTitle>
                 <DialogDescription>
@@ -90,7 +108,7 @@ export function GoalDashboard() {
         </div>
         
         {goals.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {goals.map((goal, index) => (
               <GoalCard 
                 key={goal.id} 
@@ -103,7 +121,7 @@ export function GoalDashboard() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 px-4 border-2 border-dashed rounded-lg mt-8">
+          <div className="text-center py-20 px-4 border-2 border-dashed rounded-lg mt-8 glassmorphism">
             <Wind className="mx-auto h-12 w-12 text-muted-foreground" />
             <h3 className="mt-4 text-xl font-semibold">No goals yet!</h3>
             <p className="mt-2 text-muted-foreground">Click 'Add New Goal' to get started on your journey.</p>
