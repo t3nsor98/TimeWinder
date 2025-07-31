@@ -9,7 +9,7 @@ type CountdownSegmentProps = {
 
 const CountdownSegment = ({ value, label }: CountdownSegmentProps) => (
   <div className="flex flex-col items-center justify-center p-2 rounded-lg min-w-[70px] sm:min-w-[90px]">
-    <span className="text-4xl sm:text-5xl font-bold tabular-nums text-primary tracking-tighter">
+    <span className="text-4xl sm:text-5xl font-bold tabular-nums text-primary tracking-tighter font-digital">
       {String(value).padStart(2, '0')}
     </span>
     <span className="text-xs uppercase text-muted-foreground tracking-widest">{label}</span>
@@ -38,11 +38,11 @@ export const CountdownDisplay = ({ days, hours, minutes, seconds, isFinished }: 
   return (
     <div className="flex justify-center gap-2 sm:gap-4 p-4 rounded-lg bg-card-foreground/5">
       <CountdownSegment value={days} label="Days" />
-      <div className="text-4xl sm:text-5xl font-bold text-primary/50 self-center">:</div>
+      <div className="text-4xl sm:text-5xl font-bold text-primary/50 self-center font-digital">:</div>
       <CountdownSegment value={hours} label="Hours" />
-      <div className="text-4xl sm:text-5xl font-bold text-primary/50 self-center">:</div>
+      <div className="text-4xl sm:text-5xl font-bold text-primary/50 self-center font-digital">:</div>
       <CountdownSegment value={minutes} label="Minutes" />
-      <div className="text-4xl sm:text-5xl font-bold text-primary/50 self-center">:</div>
+      <div className="text-4xl sm:text-5xl font-bold text-primary/50 self-center font-digital">:</div>
       <CountdownSegment value={seconds} label="Seconds" />
     </div>
   );
