@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -88,7 +89,7 @@ export function GoalDashboard() {
       <Header />
       <main className="container max-w-screen-2xl py-8 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-          <h2 className="text-3xl font-bold text-center sm:text-left">Your Goals</h2>
+          <h2 className="text-3xl font-bold text-center sm:text-left text-white">Your Goals</h2>
           <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
             <DialogTrigger asChild>
               <Button>
