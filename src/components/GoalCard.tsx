@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from 'react';
@@ -43,7 +44,7 @@ export const GoalCard = ({ goal, onDelete, onToggleComplete, onMove, isFirst, is
     ? 'border-yellow-500/50'
     : 'border-border';
 
-  const priorityInfo = priorityMap[goal.priority];
+  const priorityInfo = priorityMap[goal.priority] || priorityMap.Medium;
   const isOverdue = !goal.isCompleted && isFinished;
 
   return (
