@@ -1,5 +1,5 @@
 "use client";
-import { Timer } from 'lucide-react';
+import { Timer, User as UserIcon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -18,23 +18,25 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg">
-      <div className="container flex h-16 max-w-screen-2xl items-center">
+      <div className="container flex h-20 max-w-screen-2xl items-center">
         <div className="mr-4 flex">
           <a className="mr-6 flex items-center space-x-2" href="/">
-            <Timer className="h-6 w-6 text-primary" />
-            <span className="font-bold sm:inline-block font-headline text-xl">
+            <Timer className="h-8 w-8 text-primary" />
+            <span className="font-bold sm:inline-block font-headline text-2xl">
               TimeWinder
             </span>
           </a>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-2">
+        <div className="flex flex-1 items-center justify-end space-x-4">
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                  <Avatar className="h-10 w-10">
-                    <AvatarImage src={user.photoURL ?? "https://placehold.co/100x100.png"} alt="User Avatar" data-ai-hint="user avatar" />
-                    <AvatarFallback>{user.email?.[0]?.toUpperCase() ?? 'U'}</AvatarFallback>
+                <Button variant="ghost" className="relative h-12 w-12 rounded-full">
+                  <Avatar className="h-12 w-12 border-2 border-primary/50">
+                    <AvatarImage src={user.photoURL ?? ""} alt="User Avatar" />
+                    <AvatarFallback>
+                        <UserIcon className="h-6 w-6"/>
+                    </AvatarFallback>
                   </Avatar>
                 </Button>
               </DropdownMenuTrigger>
@@ -52,8 +54,8 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Button asChild>
-              <Link href="/login">Login</Link>
+            <Button asChild size="lg">
+              <Link href="/login">Login / Sign Up</Link>
             </Button>
           )}
         </div>

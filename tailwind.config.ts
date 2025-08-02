@@ -19,8 +19,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        body: ['var(--font-inter)', 'sans-serif'],
+        headline: ['var(--font-space-grotesk)', 'sans-serif'],
         code: ['monospace'],
         digital: ['Orbitron', 'sans-serif'],
       },
@@ -81,9 +81,10 @@ export default {
         },
       },
       borderRadius: {
+        xl: 'calc(var(--radius) + 4px)',
         lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        md: 'calc(var(--radius) - 4px)',
+        sm: 'calc(var(--radius) - 8px)',
       },
       keyframes: {
         'accordion-down': {

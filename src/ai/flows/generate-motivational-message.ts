@@ -40,7 +40,7 @@ const prompt = ai.definePrompt({
   name: 'generateMotivationalMessagePrompt',
   input: {schema: GenerateMotivationalMessageInputSchema},
   output: {schema: GenerateMotivationalMessageOutputSchema},
-  prompt: `You are a motivational coach. Generate a motivational message based on the user's goal description.
+  prompt: `You are a motivational coach. Generate a short, punchy, and encouraging message for the user's goal. Keep it to one or two sentences.
 
 Goal Description: {{{goalDescription}}}
 
