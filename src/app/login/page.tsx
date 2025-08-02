@@ -45,6 +45,7 @@ export default function LoginPage() {
         } catch (error) {
             console.error(error);
             toast({ title: "Google sign-in failed.", description: (error as Error).message, variant: "destructive" });
+        } finally {
             setIsLoading(false);
         }
     };
@@ -59,6 +60,7 @@ export default function LoginPage() {
         } catch (error) {
             console.error(error);
             toast({ title: "Sign-in failed.", description: (error as Error).message, variant: "destructive" });
+        } finally {
             setIsLoading(false);
         }
     };
@@ -80,8 +82,8 @@ export default function LoginPage() {
     };
 
     const setupRecaptcha = () => {
-        if (!window.recaptchaVerifier) {
-            window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        if (!(window as any).recaptchaVerifier) {
+            (window as any).recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
                 'size': 'invisible',
                 'callback': (response: any) => {
                     // reCAPTCHA solved, allow signInWithPhoneNumber.
@@ -95,7 +97,7 @@ export default function LoginPage() {
         setIsPhoneLoading(true);
         try {
             setupRecaptcha();
-            const appVerifier = window.recaptchaVerifier;
+            const appVerifier = (window as any).recaptchaVerifier;
             const result = await signInWithPhoneNumber(auth, `+${phoneNumber}`, appVerifier);
             setConfirmationResult(result);
             toast({ title: "Verification code sent." });
@@ -191,7 +193,7 @@ export default function LoginPage() {
                             <span className="w-full border-t" />
                         </div>
                         <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-card/60 px-2 text-muted-foreground">
+                            <span className="bg-card px-2 text-muted-foreground">
                                 Or continue with
                             </span>
                         </div>

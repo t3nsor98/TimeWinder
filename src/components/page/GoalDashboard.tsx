@@ -66,14 +66,14 @@ export function GoalDashboard() {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-         <main className="container max-w-screen-2xl py-8">
+         <main className="container max-w-screen-2xl py-8 px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold">Your Goals</h2>
+              <h2 className="text-3xl font-bold text-white">Your Goals</h2>
                <Button>
                 <PlusCircle className="mr-2 h-4 w-4" /> Add New Goal
               </Button>
             </div>
-             <div className="text-center py-20 px-4 border-2 border-dashed rounded-lg mt-8">
+             <div className="text-center py-20 px-4 border-2 border-dashed rounded-lg mt-8 glassmorphism">
                 <Wind className="mx-auto h-12 w-12 text-muted-foreground" />
                 <h3 className="mt-4 text-xl font-semibold">Loading your goals...</h3>
                 <p className="mt-2 text-muted-foreground">Please wait a moment.</p>
